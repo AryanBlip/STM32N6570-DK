@@ -25,7 +25,7 @@ typedef struct {
 #define RCC_BASE ((volatile uint32_t*)(PERIPH_BASE + 0x08123000UL))
 
 // GPIOA
-#define GPIOA_BASE ((volatile uint32_t*)(AHB4PERIPH_BASE)
+#define GPIOA_BASE ((volatile uint32_t*)(AHB4PERIPH_BASE))
 #define GPIOA ((GPIO_TypeDef *) GPIOA_BASE)
 
 //GPIOB
