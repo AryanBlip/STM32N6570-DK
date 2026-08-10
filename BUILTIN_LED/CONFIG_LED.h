@@ -1,9 +1,6 @@
-
 #ifndef CONFIG_LD1
 #define CONFIG_LD1
 
-
-/* --- Register Access Structures --- */
 typedef struct {
     volatile uint32_t MODER;
     volatile uint32_t OTYPER;
