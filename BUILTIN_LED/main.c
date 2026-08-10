@@ -1,10 +1,6 @@
-/*
- * Bare-metal LED blink code for STM32N6570-DK
- * Target: STM32N657X0 (Cortex-M55)
- */
 
 #include <stdint.h>
-#include "CONFIG_LED.h"
+#include "CONFIG.h"
 
 
 /* --- Simple Delay Function --- */
@@ -15,18 +11,10 @@ static void delay(volatile uint32_t count) {
 }
 
 int main(void) {
-    /* 
-     * Step 1: Enable Peripheral Clocks for GPIO Ports 
-     * (Modify RCC AHB peripheral clock register based on STM32N6 clock tree specs)
-     */
-    
+    //Step 1: Enable Peripheral Clocks for GPIO Ports 
      *(RCC_BASE + 0x30) |= (1U << 0) | (1U << 1); // Enable GPIOA, GPIOB clocks
 
-    /* 
-     * Step 2: Configure GPIO Pins as Push-Pull Outputs 
-     * Assuming onboard user LEDs are mapped to specific pins (e.g., Pin 0 / Pin 5)
-     */
-
+    //Step 2: Configure GPIO Pins as Push-Pull Outputs 
     // Clear mode bits and set to general purpose output mode (01)
     GPIOA->MODER &= ~(3U << (0 * 2));
     GPIOA->MODER |=  (1U << (0 * 2)); 
